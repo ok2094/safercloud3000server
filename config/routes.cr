@@ -23,10 +23,11 @@ Amber::Server.configure do |app|
   end
 
   routes :web do
-      
-      
-      
-      
+    get "/api/auth", ApiController, :authenticate
+    get "/api/register", ApiController, :register
+    get "/api/files", ApiController, :get_files
+    get "/api/upload", ApiController, :upload_file
+    get "/api/download", ApiController, :download_file
     get "/", HomeController, :index
   end
 

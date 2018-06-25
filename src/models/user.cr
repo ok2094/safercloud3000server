@@ -4,9 +4,8 @@ class User < Granite::ORM::Base
 
 
   # id : Int64 primary key is created for you
-  field id : Int32
   field username : String
   field password : String
-  field key : String
+  field cryptokey : String
   timestamps
 end

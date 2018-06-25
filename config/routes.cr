@@ -14,6 +14,14 @@ Amber::Server.configure do |app|
     plug Amber::Pipe::Reload.new if Amber.env.development?
   end
 
+  pipeline :api do
+    plug Amber::Pipe::PoweredByAmber.new
+    plug Amber::Pipe::Error.new
+    plug Amber::Pipe::Logger.new
+    plug Amber::Pipe::Session.new
+    plug Amber::Pipe::CORS.new
+  end
+
   # All static content will run these transformations
   pipeline :static do
     plug Amber::Pipe::PoweredByAmber.new
@@ -23,12 +31,16 @@ Amber::Server.configure do |app|
   end
 
   routes :web do
-    get "/api/auth", ApiController, :authenticate
-    get "/api/register", ApiController, :register
-    get "/api/files", ApiController, :get_files
-    get "/api/upload", ApiController, :upload_file
-    get "/api/download", ApiController, :download_file
     get "/", HomeController, :index
+  end
+
+  routes :api, "/api" do
+    get "/auth", ApiController, :authenticate
+    post "/register", ApiController, :create
+    get "/file/list", ApiController, :get_files
+    get "/file/upload", ApiController, :upload_file
+    get "/file/download", ApiController, :download_file
+    get "/file/delete", ApiController, :delete_file
   end
 
   routes :static do

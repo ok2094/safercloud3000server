@@ -1,4 +1,4 @@
-secret_key_base: H5oeJpPexKjY7NcGOlntVe_KItbLSFvKnb_h7fuauNc
+secret_key_base: FLzSZi8qGiQ945PIre6YiERvRwu1HPBFj92uTU2-h_4
 port: 3000
 name: safercloud3000
 logging:

@@ -1,4 +1,4 @@
-Amber::Server.configure do |app|
+Amber::Server.configure do
   pipeline :web do
     # Plug is the method to use connect a pipe (middleware)
     # A plug accepts an instance of HTTP::Handler
@@ -10,8 +10,6 @@ Amber::Server.configure do |app|
     plug Amber::Pipe::Session.new
     plug Amber::Pipe::Flash.new
     plug Amber::Pipe::CSRF.new
-    # Reload clients browsers (development only)
-    plug Amber::Pipe::Reload.new if Amber.env.development?
   end
 
   pipeline :api do
@@ -19,7 +17,7 @@ Amber::Server.configure do |app|
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Logger.new
     plug Amber::Pipe::Session.new
-    plug Amber::Pipe::CORS.new
+    #plug Amber::Pipe::CORS.new
   end
 
   # All static content will run these transformations
@@ -35,12 +33,12 @@ Amber::Server.configure do |app|
   end
 
   routes :api, "/api" do
-    get "/auth", ApiController, :authenticate
-    post "/register", ApiController, :create
-    get "/file/list", ApiController, :get_files
-    get "/file/upload", ApiController, :upload_file
-    get "/file/download", ApiController, :download_file
-    get "/file/delete", ApiController, :delete_file
+    resources "/user", UserController, only: [:create, :show]
+    post "/user/login", UserController, :login
+    post "/file", FileController, :upload_file
+    get "/file", FileController, :download_file
+    delete "/file", FileController, :delete_file
+    get "/file/list", FileController, :get_file_list
   end
 
   routes :static do

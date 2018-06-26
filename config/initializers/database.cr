@@ -1,6 +1,5 @@
-require "granite_orm/adapter/mysql"
+require "granite/adapter/mysql"
 
-Granite::ORM.settings.database_url = Amber.settings.database_url
-Granite::ORM.settings.logger = Amber.settings.logger.dup
-Granite::ORM.settings.logger.progname = "Granite"
-
+Granite.settings.database_url = Amber.settings.database_url
+Granite.settings.logger = Amber.settings.logger.dup
+Granite.settings.logger.progname = "Granite"

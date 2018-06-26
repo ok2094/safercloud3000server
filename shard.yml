@@ -2,9 +2,9 @@ name: safercloud3000
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - ok2094 <stehlik.jen@gmail.com>
 
-crystal: 0.24.2
+crystal: 0.25.0
 
 license: UNLICENSED
 
@@ -18,16 +18,12 @@ targets:
 dependencies:
   amber:
     github: amberframework/amber
-    version: 0.7.2
+    version: 0.8.0
     #branch: master
 
-  citrine-i18n:
-    github: amberframework/citrine-i18n
-    version: 0.1.0
-
-  granite_orm:
-    github: amberframework/granite-orm
-    version: ~> 0.8.4
+  granite:
+    github: amberframework/granite
+    version: ~> 0.12.1
 
   quartz_mailer:
     github: amberframework/quartz-mailer
@@ -39,13 +35,16 @@ dependencies:
 
   mysql:
     github: crystal-lang/crystal-mysql
-    version: ~> 0.4.0
+    version: ~> 0.5.0
+
+  citrine-i18n:
+    github: amberframework/citrine-i18n
+    version: 0.3.2
 
   jwt:
     github: crystal-community/jwt
 
-
 development_dependencies:
-  garnet_spec:
-    github: amberframework/garnet-spec
-    version: ~> 0.1.1
+ garnet_spec:
+   github: amberframework/garnet-spec
+   version: ~> 0.2.1

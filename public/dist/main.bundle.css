@@ -76,4 +76,20 @@ h6, .h6 {
   #logo {
     display: none; } }
 
+.table td, .table th {
+  vertical-align: middle; }
+
+.alert {
+  margin-top: 1em; }
+  .alert p {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+.nav-item-auth.nav-item-auth-signout, .nav-item-auth.nav-item-auth-signup {
+  order: 9999; }
+
+.nav-item-auth.nav-item-auth-profile, .nav-item-auth.nav-item-auth-signin {
+  order: 9990;
+  margin-left: auto; }
+
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmJ1bmRsZS5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/

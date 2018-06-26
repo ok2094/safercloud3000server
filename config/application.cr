@@ -5,6 +5,7 @@ require "../src/models/**"
 
 require "../src/controllers/application_controller"
 require "../src/controllers/**"
+require "../src/utils/**"
 
 # About Application.cr File
 #
@@ -21,7 +22,6 @@ require "../src/controllers/**"
 # > Important! Yaml configurations are first class citizen and are loaded first before
 # this file, we recommend to use yaml configurations before changing any settings here.
 # Any uncommented setting here will override the YAML with the value set here.
-
 
 Amber::Server.configure do |settings|
   # Use your environment variables settings here.
@@ -53,7 +53,7 @@ Amber::Server.configure do |settings|
   # initialized to a random key present in `ENV["AMBER_SECRET_KEY"]` or
   # `.amber_secret_key` in this order.
   #
-  # settings.secret_key_base= Y5G9Wyvb3s0ADXKn_rKejNF-NbSlsk6gxuRwbRc7LLA
+  # settings.secret_key_base= sPo9jMmMkbNzsj036hiGRrRqQ0Jxlb1F0gDNh3rHW6g
   #
   #
   # Host: is the application server host address or ip address. Useful for when

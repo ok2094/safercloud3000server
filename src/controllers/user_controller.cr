@@ -2,11 +2,13 @@ require "file_utils"
 
 class UserController < ApplicationController
 
+  #check if params available
   before_action do
     only :create { create_params.validate! }
     only :login { login_params.validate! }
   end
 
+  #shows details of user by id
   def show
     if user = User.find params["id"]
       respond_with 200 do
@@ -20,6 +22,7 @@ class UserController < ApplicationController
     end
   end
 
+  #creates a new character
   def create
     if User.find_by username: create_params["username"]
       results = {status: "invalid", error: "Username already taken"}
@@ -46,6 +49,7 @@ class UserController < ApplicationController
     end
   end
 
+  #checks if credentials are fine
   def login
     user = User.find_by username: params["username"]
 
@@ -64,6 +68,7 @@ class UserController < ApplicationController
     end
   end
 
+  #register params
   def create_params
     params.validation do
       required(:username, "Username missing") { |f| !f.nil? }
@@ -72,6 +77,7 @@ class UserController < ApplicationController
     end
   end
 
+  #login params
   def login_params
     params.validation do
       required(:username, "Username missing") { |f| !f.nil? }
